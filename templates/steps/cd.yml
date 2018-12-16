@@ -103,7 +103,7 @@ steps:
       }
       EOF
     displayName: Create semantic-release.template.json
-  - powershell: npx semantic-release --extends "./semantic-release.template.json" --debug
+  - powershell: npx semantic-release --extends "./semantic-release.template.json"
     displayName: Run semantic-release
     env:
       GITHUB_TOKEN: $(GITHUB_TOKEN)
