@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.0...v1.0.1) (2018-12-16)
+
+
+### Bug Fixes
+
+* **package:** change description from Malimbe repository ([3ed0ce9](https://github.com/ExtendRealityLtd/DevOps/commit/3ed0ce9))
+
 ## [1.0.1-prerelease.1](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.0...v1.0.1-prerelease.1@prerelease) (2018-12-16)
 
 
