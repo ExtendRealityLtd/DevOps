@@ -1,5 +1,23 @@
 # Changelog
 
+# [2.0.0](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.1...v2.0.0) (2018-12-16)
+
+
+### Bug Fixes
+
+* **templates:** allow using semantic-release template in other repos ([6937366](https://github.com/ExtendRealityLtd/DevOps/commit/6937366))
+
+
+### chore
+
+* **templates:** don't log debug information from semantic-release ([1607967](https://github.com/ExtendRealityLtd/DevOps/commit/1607967))
+
+
+### BREAKING CHANGES
+
+* **templates:** The CD template no longer includes debug
+information of semantic-release.
+
 ## [1.0.1](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.0...v1.0.1) (2018-12-16)
 
 
