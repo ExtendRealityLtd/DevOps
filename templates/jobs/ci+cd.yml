@@ -1,0 +1,19 @@
+parameters:
+  solution: '**/*.sln'
+  msBuildPlatform: Any CPU
+  msBuildConfiguration: Release
+  unityVersion: ''
+
+jobs:
+- job: Job
+  displayName: CI + CD
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+  - template: ../steps/ci.yml
+    parameters:
+      solution: ${{ parameters.solution }}
+      msBuildPlatform: ${{ parameters.msBuildPlatform }}
+      msBuildConfiguration: ${{ parameters.msBuildConfiguration }}
+      unityVersion: ${{ parameters.unityVersion }}
+  - template: ../steps/cd.yml

@@ -1,0 +1,21 @@
+{
+    "name": "io.extendreality.devops",
+    "displayName": "DevOps",
+    "description": "A collection of tools to simplify writing public API components in Unity.",
+    "version": "0.0.0-development",
+    "homepage": "https://github.com/ExtendRealityLtd/DevOps/",
+    "bugs": {
+        "url": "https://github.com/ExtendRealityLtd/DevOps/issues"
+    },
+    "repository": "github:ExtendRealityLtd/DevOps",
+    "license": "MIT",
+    "author": {
+        "name": "Extend Reality Ltd",
+        "email": "hello@extendreality.io",
+        "url": "https://github.com/ExtendRealityLtd"
+    },
+    "files": [
+        "*.md",
+        "templates"
+    ]
+}

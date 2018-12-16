@@ -1,0 +1,47 @@
+steps:
+- ${{ if ne(variables['Build.Reason'], 'PullRequest') }}:
+  - bash: |
+      mv -f package.json package.json.original
+      cat > package.json <<- "EOF"
+      {
+          "name": "io.extendreality.devops-dependencies",
+          "displayName": "DevOps-Dependencies",
+          "description": "A temporary package to install needed dev-dependencies.",
+          "version": "0.0.0-development",
+          "homepage": "https://github.com/ExtendRealityLtd/DevOps/",
+          "bugs": {
+              "url": "https://github.com/ExtendRealityLtd/DevOps/issues"
+          },
+          "repository": "github:ExtendRealityLtd/DevOps",
+          "license": "MIT",
+          "author": {
+              "name": "Extend Reality Ltd",
+              "email": "hello@extendreality.io",
+              "url": "https://github.com/ExtendRealityLtd"
+          },
+          "devDependencies": {
+              "semantic-release": "^16.0.0-beta.8",
+              "@semantic-release/commit-analyzer": "^7.0.0-beta.1",
+              "@semantic-release/release-notes-generator": "^7.1.4",
+              "@semantic-release/changelog": "^3.0.1",
+              "@semantic-release/npm": "^5.2.0-beta.3",
+              "@semantic-release/git": "^7.1.0-beta.1",
+              "@semantic-release/github": "^5.3.0-beta.3"
+          }
+      }
+      EOF
+    displayName: Replace package.json temporarily for npm dev-dependencies
+  - task: Npm@1
+    displayName: Install npm package dev dependencies
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: install --only=dev
+      customRegistry: useFeed
+      customFeed: $(Azure.FeedId)
+  - bash: mv -f package.json.original package.json
+    displayName: Bring back original package.json
+  - powershell: npx semantic-release --extends "./.devops/semantic-release.json" --debug
+    displayName: Run semantic-release
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
