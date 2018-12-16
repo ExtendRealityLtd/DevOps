@@ -1,0 +1,26 @@
+parameters:
+  packageFilesDirectory: ''
+
+steps:
+- ${{ if and(succeeded(), ne(variables['Build.Reason'], 'PullRequest')) }}:
+  - ${{ if ne(parameters.packageFilesDirectory, '') }}:
+    - bash: |
+        mkdir -p ./package
+        cp -rf '${{ parameters.packageFilesDirectory }}/*' ./package
+      displayName: Copy package files to package directory
+  - bash: |
+      mkdir -p ./package
+      cp -f "${BUILD_SOURCESDIRECTORY}/*.md" ./package
+    displayName: Copy repo's Markdown documents to package directory
+  - task: Npm@1
+    displayName: Install npm package dev dependencies
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: install --only=dev
+      customRegistry: useFeed
+      customFeed: $(Azure.FeedId)
+  - bash: npx semantic-release
+    displayName: Run semantic-release
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
