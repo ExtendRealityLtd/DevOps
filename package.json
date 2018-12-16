@@ -2,7 +2,7 @@
     "name": "io.extendreality.devops",
     "displayName": "DevOps",
     "description": "A collection of tools to simplify writing public API components in Unity.",
-    "version": "0.0.0-development",
+    "version": "1.0.0",
     "homepage": "https://github.com/ExtendRealityLtd/DevOps/",
     "bugs": {
         "url": "https://github.com/ExtendRealityLtd/DevOps/issues"
