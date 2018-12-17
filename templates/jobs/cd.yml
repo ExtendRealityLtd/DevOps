@@ -1,0 +1,7 @@
+jobs:
+- job: Job
+  displayName: CD
+  pool:
+    vmImage: vs2017-win2016
+  steps:
+  - template: ../steps/cd.yml

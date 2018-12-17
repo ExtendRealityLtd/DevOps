@@ -4,9 +4,4 @@ variables:
   - group: Bot as git and GitHub user
 
 jobs:
-- job: Job
-  displayName: CD
-  pool:
-    vmImage: vs2017-win2016
-  steps:
-  - template: ../templates/steps/cd.yml
+- template: ../templates/jobs/cd.yml
