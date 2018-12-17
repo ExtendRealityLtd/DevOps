@@ -1,5 +1,18 @@
 # Changelog
 
+# [3.0.0](https://github.com/ExtendRealityLtd/DevOps/compare/v2.0.1...v3.0.0) (2018-12-17)
+
+
+### Bug Fixes
+
+* **templates:** use NuGet 4.x but no later version ([987bfb9](https://github.com/ExtendRealityLtd/DevOps/commit/987bfb9))
+
+
+### BREAKING CHANGES
+
+* **templates:** only NuGet 4.x will be used until all projects are
+confirmed to work with a later major release of NuGet.
+
 ## [2.0.1](https://github.com/ExtendRealityLtd/DevOps/compare/v2.0.0...v2.0.1) (2018-12-17)
 
 
