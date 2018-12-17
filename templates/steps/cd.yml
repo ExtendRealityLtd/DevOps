@@ -20,7 +20,7 @@ steps:
               "url": "https://github.com/ExtendRealityLtd"
           },
           "devDependencies": {
-              "semantic-release": "^16.0.0-beta.8",
+              "semantic-release": "^16.0.0-beta.10",
               "@semantic-release/commit-analyzer": "^7.0.0-beta.1",
               "@semantic-release/release-notes-generator": "^7.1.4",
               "@semantic-release/changelog": "^3.0.1",
