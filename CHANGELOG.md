@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/ExtendRealityLtd/DevOps/compare/v2.0.0...v2.0.1) (2018-12-17)
+
+
+### Bug Fixes
+
+* **templates:** semantic-release success comment ([7514371](https://github.com/ExtendRealityLtd/DevOps/commit/7514371)), closes [#4](https://github.com/ExtendRealityLtd/DevOps/issues/4)
+
 # [2.0.0](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.1...v2.0.0) (2018-12-16)
 
 
