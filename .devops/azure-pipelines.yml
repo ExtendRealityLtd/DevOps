@@ -1,7 +1,5 @@
 variables:
-  - group: Build
   - group: Publish
-  - group: Bot as git and GitHub user
 
 jobs:
 - template: ../templates/jobs/cd.yml
