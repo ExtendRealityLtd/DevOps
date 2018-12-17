@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1-prerelease.2](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.1-prerelease.1@prerelease...v1.0.1-prerelease.2@prerelease) (2018-12-17)
+
+
+### Bug Fixes
+
+* **templates:** semantic-release success comment ([c1e9447](https://github.com/ExtendRealityLtd/DevOps/commit/c1e9447))
+
 ## [1.0.1-prerelease.1](https://github.com/ExtendRealityLtd/DevOps/compare/v1.0.0...v1.0.1-prerelease.1@prerelease) (2018-12-16)
 
 
