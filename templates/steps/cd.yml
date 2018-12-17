@@ -102,11 +102,10 @@ steps:
       }
       EOF
     displayName: Create semantic-release.template.json
-    env:
-      npm_config_access: public
-      NPM_TOKEN: $(Npm.Token)
   # Using bash to run semantic-release doesn't continue after loading all the plugins.
   - powershell: npx semantic-release --extends "./semantic-release.template.json"
     displayName: Run semantic-release
     env:
       GITHUB_TOKEN: $(GitHub.Token)
+      NPM_TOKEN: $(Npm.Token)
+      npm_config_access: public
