@@ -1,5 +1,18 @@
 # Changelog
 
+# [3.1.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.0.0...v3.1.0) (2018-12-17)
+
+
+### Bug Fixes
+
+* **templates:** apply environment variables to semantic-release task ([f481237](https://github.com/ExtendRealityLtd/DevOps/commit/f481237))
+* **templates:** token variable name for GitHub ([72f4f7a](https://github.com/ExtendRealityLtd/DevOps/commit/72f4f7a))
+
+
+### Features
+
+* **templates:** publish to npmjs.org ([87fae9f](https://github.com/ExtendRealityLtd/DevOps/commit/87fae9f))
+
 # [3.0.0](https://github.com/ExtendRealityLtd/DevOps/compare/v2.0.1...v3.0.0) (2018-12-17)
 
 
