@@ -1,5 +1,12 @@
 # Changelog
 
+# [3.2.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.1.0...v3.2.0) (2018-12-20)
+
+
+### Features
+
+* **templates:** use latest semantic-release versions ([005ecef](https://github.com/ExtendRealityLtd/DevOps/commit/005ecef))
+
 # [3.1.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.0.0...v3.1.0) (2018-12-17)
 
 
