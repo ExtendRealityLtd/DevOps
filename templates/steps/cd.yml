@@ -46,8 +46,8 @@ steps:
       {
           "branches": [
               "+([1-9])?(.{+([1-9]),x}).x",
-              "latest",
-              {"name": "prerelease", "prerelease": "prerelease"}
+              "release",
+              {"name": "preview", "prerelease": "preview"}
           ],
           "plugins": [
               [
