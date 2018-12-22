@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.2...v3.3.3) (2018-12-22)
+
+
+### Bug Fixes
+
+* **templates:** check Unity .meta files after building, not before ([cb387f1](https://github.com/ExtendRealityLtd/DevOps/commit/cb387f1))
+
 ## [3.3.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.1...v3.3.2) (2018-12-22)
 
 
