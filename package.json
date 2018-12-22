@@ -2,7 +2,7 @@
     "name": "io.extendreality.devops",
     "displayName": "DevOps",
     "description": "A collection of templates to simplify the continuous integration and deployment of projects by https://github.com/ExtendRealityLtd.",
-    "version": "3.3.1",
+    "version": "3.3.2",
     "homepage": "https://github.com/ExtendRealityLtd/DevOps/",
     "bugs": {
         "url": "https://github.com/ExtendRealityLtd/DevOps/issues"

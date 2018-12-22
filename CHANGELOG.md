@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.1...v3.3.2) (2018-12-22)
+
+
+### Bug Fixes
+
+* **templates:** syntax of conditional insertion for task arguments ([83703af](https://github.com/ExtendRealityLtd/DevOps/commit/83703af))
+
 ## [3.3.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.0...v3.3.1) (2018-12-22)
 
 
