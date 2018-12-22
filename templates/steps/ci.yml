@@ -68,5 +68,5 @@ steps:
     configuration: ${{ parameters.msBuildConfiguration }}
     maximumCpuCount: true
     msbuildArchitecture: x64
-    - ${{ if parameters.unityProject }}:
+    ${{ if parameters.unityProject }}:
       msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.Path)Editor/Data/Managed/"
