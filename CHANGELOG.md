@@ -1,5 +1,12 @@
 # Changelog
 
+# [3.3.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.2.0...v3.3.0) (2018-12-22)
+
+
+### Features
+
+* **templates:** ensure Unity projects have the needed .meta files ([260603d](https://github.com/ExtendRealityLtd/DevOps/commit/260603d))
+
 # [3.2.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.1.0...v3.2.0) (2018-12-20)
 
 
