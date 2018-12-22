@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.0...v3.3.1) (2018-12-22)
+
+
+### Bug Fixes
+
+* **templates:** fail on Unity .meta files for no matching file ([e13d988](https://github.com/ExtendRealityLtd/DevOps/commit/e13d988))
+
 # [3.3.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.2.0...v3.3.0) (2018-12-22)
 
 
