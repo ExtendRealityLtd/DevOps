@@ -2,6 +2,7 @@ parameters:
   solution: '**/*.sln'
   msBuildPlatform: Any CPU
   msBuildConfiguration: Release
+  unityProject: true
   unityVersion: ''
 
 jobs:
@@ -15,4 +16,5 @@ jobs:
       solution: ${{ parameters.solution }}
       msBuildPlatform: ${{ parameters.msBuildPlatform }}
       msBuildConfiguration: ${{ parameters.msBuildConfiguration }}
+      unityProject: ${{ parameters.unityProject }}
       unityVersion: ${{ parameters.unityVersion }}

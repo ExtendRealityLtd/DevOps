@@ -2,40 +2,50 @@ parameters:
   solution: '**/*.sln'
   msBuildPlatform: Any CPU
   msBuildConfiguration: Release
+  unityProject: true
   unityVersion: ''
 
 steps:
-- powershell: |
-    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-    Install-Module UnitySetup -Scope CurrentUser -Force
-  displayName: Install Unity Setup Powershell Module
-  failOnStderr: true
-- powershell: |
-    $version = "${{ parameters.unityVersion }}"
-    $setupInstance = Get-UnitySetupInstance | Select-UnitySetupInstance -Latest
+- ${{ if parameters.unityProject }}:
+  - bash: |
+      for entry in $(find . -not -path "*/\.*" -not -path . -not -name "*.meta")
+        do if [ ! -f "$entry.meta" ]
+          then echo "Missing Unity meta file for '$entry'." >&2
+        fi
+      done
+    displayName: Check if all Unity .meta files exist
+    failOnStderr: true
+  - powershell: |
+      Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+      Install-Module UnitySetup -Scope CurrentUser -Force
+    displayName: Install Unity Setup Powershell Module
+    failOnStderr: true
+  - powershell: |
+      $version = "${{ parameters.unityVersion }}"
+      $setupInstance = Get-UnitySetupInstance | Select-UnitySetupInstance -Latest
 
-    If ($version -eq "")
-    {
-        If (!$setupInstance)
-        {
-            Write-Error "No Unity version specified and no Unity installation found."
-            Exit 1
-        }
+      If ($version -eq "")
+      {
+          If (!$setupInstance)
+          {
+              Write-Error "No Unity version specified and no Unity installation found."
+              Exit 1
+          }
 
-        Write-Host "Using already installed Unity version '$($setupInstance.Version)'."
-    }
-    ElseIf ($setupInstance.Version.ToString() -ne $version)
-    {
-        Write-Host "Installing Unity version '$version'."
-        Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version $version -Components "Windows")
-        $setupInstance = Get-UnitySetupInstance | Select-UnitySetupInstance -Version $version
-    }
+          Write-Host "Using already installed Unity version '$($setupInstance.Version)'."
+      }
+      ElseIf ($setupInstance.Version.ToString() -ne $version)
+      {
+          Write-Host "Installing Unity version '$version'."
+          Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version $version -Components "Windows")
+          $setupInstance = Get-UnitySetupInstance | Select-UnitySetupInstance -Version $version
+      }
 
-    $path = $setupInstance.Path
-    Write-Host "##vso[task.setvariable variable=Unity.Path]$path"
-    Write-Host "Using Unity at path '$path'."
-  displayName: Install/find Unity
-  failOnStderr: true
+      $path = $setupInstance.Path
+      Write-Host "##vso[task.setvariable variable=Unity.Path]$path"
+      Write-Host "Using Unity at path '$path'."
+    displayName: Install/find Unity
+    failOnStderr: true
 - task: NuGetToolInstaller@0
   displayName: Use NuGet 4.x
   inputs:
@@ -53,4 +63,5 @@ steps:
     configuration: ${{ parameters.msBuildConfiguration }}
     maximumCpuCount: true
     msbuildArchitecture: x64
-    msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.Path)Editor/Data/Managed/"
+    - ${{ if parameters.unityProject }}:
+      msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.Path)Editor/Data/Managed/"
