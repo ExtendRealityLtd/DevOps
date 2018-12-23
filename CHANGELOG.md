@@ -1,5 +1,12 @@
 # Changelog
 
+# [3.4.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.6...v3.4.0) (2018-12-23)
+
+
+### Features
+
+* **templates:** ignore npm notice "errors" in CD steps ([a1c30ee](https://github.com/ExtendRealityLtd/DevOps/commit/a1c30ee))
+
 ## [3.3.6](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.5...v3.3.6) (2018-12-23)
 
 
