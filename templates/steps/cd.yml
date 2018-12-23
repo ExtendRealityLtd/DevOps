@@ -3,7 +3,7 @@ parameters:
 
 steps:
 - ${{ if ne(variables['Build.Reason'], 'PullRequest') }}:
-  - ${{ if parameters.unityProject }}:
+  - ${{ if eq(parameters.unityProject, 'true') }}:
     - bash: |
         npm pack
         tarball=$(npm list — depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
