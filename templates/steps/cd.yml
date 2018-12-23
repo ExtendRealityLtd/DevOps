@@ -6,7 +6,7 @@ steps:
   - ${{ if eq(parameters.unityProject, 'true') }}:
     - bash: |
         npm pack
-        tarball=$(npm list — depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
+        tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
         tarballFilePaths=$(tar -tf $tarball)
 
         for filePath in $tarballFilePaths
