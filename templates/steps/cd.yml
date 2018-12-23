@@ -5,7 +5,7 @@ steps:
 - ${{ if ne(variables['Build.Reason'], 'PullRequest') }}:
   - ${{ if eq(parameters.unityProject, 'true') }}:
     - bash: |
-        npm pack
+        npm pack 2>/dev/null
         tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
         tarballFilePaths=$(tar -tf $tarball)
 
