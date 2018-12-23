@@ -6,7 +6,7 @@ parameters:
   unityVersion: ''
 
 steps:
-- ${{ if if eq(parameters.unityProject, 'true') }}:
+- ${{ if eq(parameters.unityProject, 'true') }}:
   - powershell: |
       Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
       Install-Module UnitySetup -Scope CurrentUser -Force
@@ -55,5 +55,5 @@ steps:
     configuration: ${{ parameters.msBuildConfiguration }}
     maximumCpuCount: true
     msbuildArchitecture: x64
-    ${{ if if eq(parameters.unityProject, 'true') }}:
+    ${{ if eq(parameters.unityProject, 'true') }}:
       msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.Path)Editor/Data/Managed/"
