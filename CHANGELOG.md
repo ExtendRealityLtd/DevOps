@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.6](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.5...v3.3.6) (2018-12-23)
+
+
+### Bug Fixes
+
+* **templates:** encoding issue in CD steps ([23dcc94](https://github.com/ExtendRealityLtd/DevOps/commit/23dcc94))
+
 ## [3.3.5](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.4...v3.3.5) (2018-12-23)
 
 
