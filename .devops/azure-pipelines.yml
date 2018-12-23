@@ -3,3 +3,5 @@ variables:
 
 jobs:
 - template: ../templates/jobs/cd.yml
+  parameters:
+    unityProject: false

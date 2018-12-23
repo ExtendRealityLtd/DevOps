@@ -57,17 +57,3 @@ steps:
     msbuildArchitecture: x64
     ${{ if parameters.unityProject }}:
       msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.Path)Editor/Data/Managed/"
-- ${{ if parameters.unityProject }}:
-  - bash: |
-      for entry in $(find . -not -path "*/\.*" -not -path . -not -name "*.meta")
-        do if [ ! -f "$entry.meta" ]
-          then echo "Missing Unity meta file for '$entry'." >&2
-        fi
-      done
-      for entry in $(find . -not -path "*/\.*" -not -path . -name "*.meta")
-        do if [ ! -f ${entry::-5} ] && [ ! -d ${entry::-5} ]; then
-          echo "Missing file for Unity meta file '$entry'." >&2
-        fi
-      done
-    displayName: Check Unity .meta files
-    failOnStderr: true

@@ -1,5 +1,65 @@
+parameters:
+  unityProject: true
+
 steps:
 - ${{ if ne(variables['Build.Reason'], 'PullRequest') }}:
+  - ${{ if parameters.unityProject }}:
+    - bash: |
+        npm pack
+        tarball=$(npm list — depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
+        tarballFilePaths=$(tar -tf $tarball)
+
+        for filePath in $tarballFilePaths
+        do
+          case $filePath in
+            *.meta)
+              metaFilePath=$filePath
+              found=false
+              regularFilePath=${metaFilePath%.meta}
+              for otherFilePath in $tarballFilePaths
+              do
+                case $otherFilePath in
+                  $regularFilePath/* | $regularFilePath*) # folder or file
+                    if [ $metaFilePath != $otherFilePath ]
+                    then
+                      found=true
+                      break
+                    fi;;
+                esac
+              done
+              if [ "$found" = false ]
+              then
+                echo "Missing file for Unity meta file '$metaFilePath'." >&2
+              fi;;
+          esac
+        done
+
+        for filePath in $tarballFilePaths
+        do
+          case $filePath in
+            *.meta)
+              ;;
+            *)
+              regularFilePath=$filePath
+              found=false
+              for otherFilePath in $tarballFilePaths
+              do
+                case $otherFilePath in
+                  $regularFilePath.meta)
+                    found=true
+                    break;;
+                esac
+              done
+              if [ "$found" = false ]
+              then
+                echo "Missing Unity meta file for file '$regularFilePath'." >&2
+              fi;;
+          esac
+        done
+
+        rm -f $tarball
+      displayName: Check Unity .meta files
+      failOnStderr: true
   - bash: |
       mv -f package.json package.json.original
       cat > package.json <<- "EOF"
