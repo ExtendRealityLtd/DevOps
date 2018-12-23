@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.5](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.4...v3.3.5) (2018-12-23)
+
+
+### Bug Fixes
+
+* **templates:** double if in conditional expressions in CI steps ([d8314c2](https://github.com/ExtendRealityLtd/DevOps/commit/d8314c2))
+
 ## [3.3.4](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.3...v3.3.4) (2018-12-23)
 
 
