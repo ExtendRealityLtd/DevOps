@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.4](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.3...v3.3.4) (2018-12-23)
+
+
+### Bug Fixes
+
+* **templates:** move Unity .meta files check to CD steps ([d53d41c](https://github.com/ExtendRealityLtd/DevOps/commit/d53d41c))
+* **templates:** unityProject parameter check ([1da33c8](https://github.com/ExtendRealityLtd/DevOps/commit/1da33c8))
+
 ## [3.3.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.2...v3.3.3) (2018-12-22)
 
 
