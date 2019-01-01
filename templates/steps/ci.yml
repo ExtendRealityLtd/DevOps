@@ -18,19 +18,19 @@ steps:
 
       If ($version -eq "")
       {
-          If (!$setupInstance)
-          {
-              Write-Error "No Unity version specified and no Unity installation found."
-              Exit 1
-          }
+        If (!$setupInstance)
+        {
+          Write-Error "No Unity version specified and no Unity installation found."
+          Exit 1
+        }
 
-          Write-Host "Using already installed Unity version '$($setupInstance.Version)'."
+        Write-Host "Using already installed Unity version '$($setupInstance.Version)'."
       }
       ElseIf ($setupInstance.Version.ToString() -ne $version)
       {
-          Write-Host "Installing Unity version '$version'."
-          Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version $version -Components "Windows")
-          $setupInstance = Get-UnitySetupInstance | Select-UnitySetupInstance -Version $version
+        Write-Host "Installing Unity version '$version'."
+        Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version $version -Components "Windows")
+        $setupInstance = Get-UnitySetupInstance | Select-UnitySetupInstance -Version $version
       }
 
       $path = $setupInstance.Path

@@ -64,30 +64,31 @@ steps:
       mv -f package.json package.json.original
       cat > package.json <<- "EOF"
       {
-          "name": "io.extendreality.devops-dependencies",
-          "displayName": "DevOps-Dependencies",
-          "description": "A temporary package to install needed dev-dependencies.",
-          "version": "0.0.0-development",
-          "homepage": "https://github.com/ExtendRealityLtd/DevOps/",
-          "bugs": {
-              "url": "https://github.com/ExtendRealityLtd/DevOps/issues"
-          },
-          "repository": "github:ExtendRealityLtd/DevOps",
-          "license": "MIT",
-          "author": {
-              "name": "Extend Reality Ltd",
-              "email": "hello@extendreality.io",
-              "url": "https://github.com/ExtendRealityLtd"
-          },
-          "devDependencies": {
-              "semantic-release": "^16.0.0-beta.13",
-              "@semantic-release/commit-analyzer": "^7.0.0-beta.1",
-              "@semantic-release/release-notes-generator": "^7.1.4",
-              "@semantic-release/changelog": "^3.0.1",
-              "@semantic-release/npm": "^5.2.0-beta.4",
-              "@semantic-release/git": "^7.1.0-beta.2",
-              "@semantic-release/github": "^5.3.0-beta.5"
-          }
+        "name": "io.extendreality.devops-dependencies",
+        "displayName": "DevOps-Dependencies",
+        "description": "A temporary package to install needed dev-dependencies.",
+        "version": "0.0.0-development",
+        "homepage": "https://github.com/ExtendRealityLtd/DevOps/",
+        "bugs": {
+          "url": "https://github.com/ExtendRealityLtd/DevOps/issues"
+        },
+        "repository": "github:ExtendRealityLtd/DevOps",
+        "license": "MIT",
+        "author": {
+          "name": "Extend Reality Ltd",
+          "email": "hello@extendreality.io",
+          "url": "https://github.com/ExtendRealityLtd"
+        },
+        "devDependencies": {
+          "semantic-release": "^16.0.0-beta.15",
+          "@semantic-release/commit-analyzer": "^7.0.0-beta.1",
+          "@semantic-release/release-notes-generator": "^7.1.4",
+          "@semantic-release/changelog": "^3.0.2",
+          "@semantic-release/npm": "^5.2.0-beta.5",
+          "@semantic-release/git": "^7.1.0-beta.2",
+          "@semantic-release/exec": "^3.4.0-beta.2",
+          "@semantic-release/github": "^5.3.0-beta.6"
+        }
       }
       EOF
     displayName: Replace package.json temporarily for npm dev-dependencies
@@ -104,61 +105,52 @@ steps:
   - bash: |
       cat > semantic-release.template.json <<- "EOF"
       {
-          "branches": [
-              "+([1-9])?(.{+([1-9]),x}).x",
-              "release",
-              {"name": "preview", "prerelease": "preview"}
-          ],
-          "plugins": [
-              [
-                  "@semantic-release/commit-analyzer", {
-                      "parserOpts": {
-                          "revertPattern": "/^(?:Revert|revert:)\\s\"?([\\s\\S]+?)\"?\\s*This reverts commit (\\w*)\\./"
-                      },
-                      "releaseRules": [
-                          {"breaking": true, "release": "major"},
-                          {"type": "feat", "release": "minor"},
-                          {"revert": true, "release": "patch"},
-                          {"type": "fix", "release": "patch"},
-                          {"type": "refactor", "release": "patch"},
-                          {"type": "docs", "release": "patch"}
-                      ]
-                  }
-              ],
-              [
-                  "@semantic-release/release-notes-generator", {
-                      "parserOpts": {
-                          "revertPattern": "/^(?:Revert|revert:)\\s\"?([\\s\\S]+?)\"?\\s*This reverts commit (\\w*)\\./"
-                      }
-                  }
-              ],
-              [
-                  "@semantic-release/changelog", {
-                      "changelogTitle": "# Changelog"
-                  }
-              ],
-              [
-                  "@semantic-release/npm", {
-                      "tarballDir": "package"
-                  }
-              ],
-              [
-                  "@semantic-release/git", {
-                      "message": "chore(release): set version to ${nextRelease.version}\n\n${nextRelease.notes}\n\nThis commit is a result of automation, thus CI shouldn't run (***NO_CI***).",
-                      "assets": [
-                          "CHANGELOG.md",
-                          "package.json"
-                      ]
-                  }
-              ],
-              [
-                  "@semantic-release/github", {
-                      "assets": [
-                          {"path": "package/*.tgz"}
-                      ]
-                  }
-              ]
-          ]
+        "branches": [
+          "+([1-9])?(.{+([1-9]),x}).x",
+          "release",
+          {"name": "preview", "prerelease": "preview"}
+        ],
+        "plugins": [
+          ["@semantic-release/commit-analyzer", {
+            "parserOpts": {
+              "revertPattern": "/^(?:Revert|revert:)\\s\"?([\\s\\S]+?)\"?\\s*This reverts commit (\\w*)\\./"
+            },
+            "releaseRules": [
+              {"breaking": true, "release": "major"},
+              {"type": "feat", "release": "minor"},
+              {"revert": true, "release": "patch"},
+              {"type": "fix", "release": "patch"},
+              {"type": "refactor", "release": "patch"},
+              {"type": "docs", "release": "patch"}
+            ]
+          }],
+          ["@semantic-release/release-notes-generator", {
+            "parserOpts": {
+              "revertPattern": "/^(?:Revert|revert:)\\s\"?([\\s\\S]+?)\"?\\s*This reverts commit (\\w*)\\./"
+            }
+          }],
+          ["@semantic-release/changelog", {
+            "changelogTitle": "# Changelog"
+          }],
+          ["@semantic-release/npm", {
+            "tarballDir": "package"
+          }],
+          ["@semantic-release/git", {
+            "message": "chore(release): set version to ${nextRelease.version}\n\n${nextRelease.notes}\n\nThis commit is a result of automation, thus CI shouldn't run (***NO_CI***).",
+            "assets": [
+              "CHANGELOG.md",
+              "package.json"
+            ]
+          }],
+          ["@semantic-release/exec", {
+            "publishCmd": "tarball=$(npm list --depth 0 | sed \"s/@/-/g; s/ .*/.tgz/g; 1q;\"); tar -tf $tarball | sed \"s/^package\\///\" | zip -@r \"${tarball%.*}.zip\"; rm $tarball"
+          }],
+          ["@semantic-release/github", {
+            "assets": [
+              {"path": "package/*.zip"}
+            ]
+          }]
+        ]
       }
       EOF
     displayName: Create semantic-release.template.json
