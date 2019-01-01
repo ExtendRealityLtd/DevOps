@@ -1,5 +1,12 @@
 # Changelog
 
+# [3.5.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.4.0...v3.5.0) (2019-01-01)
+
+
+### Features
+
+* **templates:** publish .zip package to GitHub via CD steps ([240b66a](https://github.com/ExtendRealityLtd/DevOps/commit/240b66a))
+
 # [3.4.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.3.6...v3.4.0) (2018-12-23)
 
 
