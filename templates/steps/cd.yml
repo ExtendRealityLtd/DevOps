@@ -143,7 +143,7 @@ steps:
             ]
           }],
           ["@semantic-release/exec", {
-            "publishCmd": "tarball=$(npm list --depth 0 | sed \"s/@/-/g; s/ .*/.tgz/g; 1q;\"); tar -tf $tarball | sed \"s/^package\\///\" | zip -@r $(echo $tarball | sed -e \"s/\\.[^.]*$//\").zip; rm $tarball"
+            "publishCmd": "bash -c 'tarball=\\$(npm list --depth 0 | sed \\\"s/@/-/g; s/ .*/.tgz/g; 1q;\\\"); tar -tf \\$tarball | sed \\\"s/^package\\\\///\\\" | zip -@r \\$(echo \\$tarball | sed -e \\\"s/\\.[^.]*\\$//\\\").zip; rm \\$tarball'"
           }],
           ["@semantic-release/github", {
             "assets": [
