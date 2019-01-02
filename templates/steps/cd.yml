@@ -134,7 +134,7 @@ steps:
             "changelogTitle": "# Changelog"
           }],
           ["@semantic-release/npm", {
-            "tarballDir": "package"
+            "tarballDir": "."
           }],
           ["@semantic-release/git", {
             "message": "chore(release): set version to ${nextRelease.version}\n\n${nextRelease.notes}\n\nThis commit is a result of automation, thus CI shouldn't run (***NO_CI***).",
@@ -147,9 +147,7 @@ steps:
             "publishCmd": "bash npm-tarball-to-zip.sh"
           }],
           ["@semantic-release/github", {
-            "assets": [
-              {"path": "package/*.zip"}
-            ]
+            "assets": "*.zip"
           }]
         ]
       }
@@ -157,7 +155,6 @@ steps:
     displayName: Create semantic-release.template.json
   - bash: |
       cat > npm-tarball-to-zip.sh <<- "EOF"
-      cd package
       tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
       zipName=$(echo $tarball | sed -e "s/\.[^.]*$//").zip
       files=$(tar -tf $tarball | sed "s/^package\\///")
