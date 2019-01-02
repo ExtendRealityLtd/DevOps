@@ -143,7 +143,7 @@ steps:
             ]
           }],
           ["@semantic-release/exec", {
-            "publishCmd": "bash -c 'tarball=\\$(npm list --depth 0 | sed \\\"s/@/-/g; s/ .*/.tgz/g; 1q;\\\"); tar -tf \\$tarball | sed \\\"s/^package\\\\///\\\" | zip -@r \\$(echo \\$tarball | sed -e \\\"s/\\.[^.]*\\$//\\\").zip; rm \\$tarball'"
+            "publishCmd": "bash ./npm-tarball-to-zip.sh"
           }],
           ["@semantic-release/github", {
             "assets": [
@@ -154,6 +154,13 @@ steps:
       }
       EOF
     displayName: Create semantic-release.template.json
+  - bash: |
+      cat > npm-tarball-to-zip.sh <<- "EOF"
+      tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
+      tar -tf $tarball | sed "s/^package\\///" | zip -@r $(echo $tarball | sed -e "s/\.[^.]*$//").zip
+      rm $tarball
+      EOF
+    displayName: Create npm-tarball-to-zip.sh
   # Using bash to run semantic-release doesn't continue after loading all the plugins.
   - powershell: npx semantic-release --extends "./semantic-release.template.json"
     displayName: Run semantic-release
