@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.2...v3.5.3) (2019-01-02)
+
+
+### Bug Fixes
+
+* **templates:** tarball to zip commands by moving into .sh file ([baec719](https://github.com/ExtendRealityLtd/DevOps/commit/baec719))
+
 ## [3.5.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.1...v3.5.2) (2019-01-02)
 
 
