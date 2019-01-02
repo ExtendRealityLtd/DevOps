@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.0...v3.5.1) (2019-01-02)
+
+
+### Bug Fixes
+
+* **templates:** tarball to zip ([b6f127b](https://github.com/ExtendRealityLtd/DevOps/commit/b6f127b))
+
 # [3.5.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.4.0...v3.5.0) (2019-01-01)
 
 
