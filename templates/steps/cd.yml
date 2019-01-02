@@ -87,7 +87,8 @@ steps:
           "@semantic-release/npm": "^5.2.0-beta.5",
           "@semantic-release/git": "^7.1.0-beta.2",
           "@semantic-release/exec": "^3.4.0-beta.2",
-          "@semantic-release/github": "^5.3.0-beta.6"
+          "@semantic-release/github": "^5.3.0-beta.6",
+          "bestzip": "^2.1.2"
         }
       }
       EOF
@@ -158,7 +159,9 @@ steps:
       cat > npm-tarball-to-zip.sh <<- "EOF"
       cd package
       tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
-      tar -tf $tarball | sed "s/^package\\///" | zip -@r $(echo $tarball | sed -e "s/\.[^.]*$//").zip
+      zipName=$(echo $tarball | sed -e "s/\.[^.]*$//").zip
+      files=$(tar -tf $tarball | sed "s/^package\\///")
+      npx --no-install --cache ../node_modules bestzip $zipName $files
       rm $tarball
       EOF
     displayName: Create npm-tarball-to-zip.sh
