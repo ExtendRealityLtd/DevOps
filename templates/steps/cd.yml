@@ -143,7 +143,7 @@ steps:
             ]
           }],
           ["@semantic-release/exec", {
-            "publishCmd": "bash ./npm-tarball-to-zip.sh"
+            "publishCmd": "bash npm-tarball-to-zip.sh"
           }],
           ["@semantic-release/github", {
             "assets": [
@@ -156,6 +156,7 @@ steps:
     displayName: Create semantic-release.template.json
   - bash: |
       cat > npm-tarball-to-zip.sh <<- "EOF"
+      cd package
       tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
       tar -tf $tarball | sed "s/^package\\///" | zip -@r $(echo $tarball | sed -e "s/\.[^.]*$//").zip
       rm $tarball
