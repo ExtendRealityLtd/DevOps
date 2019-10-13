@@ -137,7 +137,7 @@ steps:
             "tarballDir": "."
           }],
           ["@semantic-release/git", {
-            "message": "chore(release): set version to ${nextRelease.version}\n\n${nextRelease.notes}\n\nThis commit is a result of automation, thus CI shouldn't run (***NO_CI***).",
+            "message": "chore(release): set version to ${nextRelease.version}\n\n${nextRelease.notes}\n\nThis commit is a result of automation, thus CI shouldn't run ([skip ci]).",
             "assets": [
               "CHANGELOG.md",
               "package.json"
