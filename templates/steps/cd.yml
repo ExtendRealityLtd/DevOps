@@ -80,6 +80,7 @@ steps:
           "url": "https://github.com/ExtendRealityLtd"
         },
         "devDependencies": {
+          "conventional-changelog-conventionalcommits": "^4.2.1",
           "semantic-release": "^16.0.0-beta.25",
           "@semantic-release/commit-analyzer": "^7.0.0-beta.4",
           "@semantic-release/release-notes-generator": "^7.3.1",
@@ -105,53 +106,89 @@ steps:
     displayName: Bring back original package.json
   - bash: |
       cat > semantic-release.template.json <<- "EOF"
-      {
-        "branches": [
-          "+([1-9])?(.{+([1-9]),x}).x",
-          "release",
-          "master",
-          {"name": "preview", "prerelease": "preview"}
+      parserOpts = {
+        revertPattern: '/^(?:Revert|revert:)\\s\'?([\\s\\S]+?)\'?\\s*This reverts commit (\\w*)\\./'
+      };
+      module.exports = {
+        branches: [
+          '+([0-9])?(.{+([0-9]),x}).x',
+          { name: 'master', channel: false },
+          { name: 'next', channel: 'next', prerelease: 'next' },
+          { name: 'next-major', channel: 'next-major', prerelease: 'next-major' }
         ],
-        "plugins": [
-          ["@semantic-release/commit-analyzer", {
-            "parserOpts": {
-              "revertPattern": "/^(?:Revert|revert:)\\s\"?([\\s\\S]+?)\"?\\s*This reverts commit (\\w*)\\./"
-            },
-            "releaseRules": [
-              {"breaking": true, "release": "major"},
-              {"type": "feat", "release": "minor"},
-              {"revert": true, "release": "patch"},
-              {"type": "fix", "release": "patch"},
-              {"type": "refactor", "release": "patch"},
-              {"type": "docs", "release": "patch"}
+        tagFormat: 'v${version}',
+        plugins: [
+          ['@semantic-release/commit-analyzer', {
+            preset: 'conventionalcommits',
+            parserOpts,
+            releaseRules: [
+              { breaking: true, release: 'major' },
+              { revert: true, release: 'patch' },
+              { type: 'feat', release: 'minor' },
+              { type: 'fix', release: 'patch' },
+              { type: 'perf', release: 'patch' }
             ]
           }],
-          ["@semantic-release/release-notes-generator", {
-            "parserOpts": {
-              "revertPattern": "/^(?:Revert|revert:)\\s\"?([\\s\\S]+?)\"?\\s*This reverts commit (\\w*)\\./"
+          ['@semantic-release/release-notes-generator', {
+            preset: 'conventionalcommits',
+            parserOpts,
+            writerOpts: {
+              types: [
+                { type: 'feat', section: 'Features' },
+                { type: 'fix', section: 'Bug Fixes' },
+                { type: 'perf', section: 'Performance Improvements' },
+                { type: 'docs', section: 'Documentation' },
+                { type: 'test', section: 'Tests' },
+                { type: 'refactor', section: 'Code Refactoring' },
+                { type: 'style', section: 'Styles' },
+                { type: 'build', section: 'Build System' },
+                { type: 'ci', section: 'Continuous Integration' }
+              ]
             }
           }],
-          ["@semantic-release/changelog", {
-            "changelogTitle": "# Changelog"
+          ['@semantic-release/changelog', {
+            changelogFile: 'CHANGELOG.md',
+            changelogTitle: '# Changelog'
           }],
-          ["@semantic-release/npm", {
-            "tarballDir": "."
+          ['@semantic-release/npm', {
+            pkgRoot: '.',
+            tarballDir: '.'
           }],
-          ["@semantic-release/git", {
-            "message": "chore(release): set version to ${nextRelease.version}\n\n${nextRelease.notes}\n\nThis commit is a result of automation, thus CI shouldn't run ([skip ci]).",
-            "assets": [
-              "CHANGELOG.md",
-              "package.json"
+          ['@semantic-release/git', {
+            message: 'chore(release): set version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+            assets: [
+              'CHANGELOG.md',
+              'package.json'
             ]
           }],
-          ["@semantic-release/exec", {
-            "publishCmd": "bash npm-tarball-to-zip.sh"
+          ['@semantic-release/exec', {
+            publishCmd: 'bash npm-tarball-to-zip.sh'
           }],
-          ["@semantic-release/github", {
-            "assets": "*.zip"
+          ['@semantic-release/github', {
+            assets: '*.zip',
+            labels: 'failed-release',
+            releasedLabels: 'released'
           }]
-        ]
-      }
+        ],
+        commitGroupsSort: (a, b) => {
+          const order = [
+            'Features',
+            'Bug Fixes',
+            'Performance Improvements',
+            'Documentation',
+            'Tests',
+            'Code Refactoring',
+            'Styles',
+            'Build System',
+            'Continuous Integration'
+          ]
+          if (order.indexOf(a.title) >= order.indexOf(b.title)) {
+            return -1
+          } else {
+            return 1
+          }
+        }
+      };
       EOF
     displayName: Create semantic-release.template.json
   - bash: |
