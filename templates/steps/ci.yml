@@ -34,7 +34,8 @@ steps:
       }
 
       $path = $setupInstance.Path
-      Write-Host "##vso[task.setvariable variable=Unity.Path]$path"
+      $path = Join-Path $path "Editor/Data/Managed/"
+      Write-Host "##vso[task.setvariable variable=Unity.AssembliesPath]$path"
       Write-Host "Using Unity at path '$path'."
     displayName: Install/find Unity
     failOnStderr: true
@@ -56,4 +57,4 @@ steps:
     maximumCpuCount: true
     msbuildArchitecture: x64
     ${{ if eq(parameters.unityProject, 'true') }}:
-      msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.Path)Editor/Data/Managed/"
+      msbuildArgs: /p:UnityEditorAssembliesPath="$(Unity.AssembliesPath)"
