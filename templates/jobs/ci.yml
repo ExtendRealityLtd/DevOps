@@ -9,7 +9,7 @@ jobs:
 - job: Job
   displayName: CI
   pool:
-    vmImage: vs2017-win2016
+    vmImage: windows-latest
   steps:
   - template: ../steps/ci.yml
     parameters:
