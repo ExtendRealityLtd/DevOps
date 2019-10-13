@@ -1,5 +1,12 @@
 # Changelog
 
+# [3.7.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.6.0...v3.7.0) (2019-10-13)
+
+
+### Features
+
+* **templates:** treat the master branch as a release branch ([d8b9ad4](https://github.com/ExtendRealityLtd/DevOps/commit/d8b9ad4a756068ab89de88a2203f1603b3a7faad))
+
 # [3.6.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.6...v3.6.0) (2019-10-13)
 
 
