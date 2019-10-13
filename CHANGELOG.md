@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.7.1...v3.7.2) (2019-10-13)
+
+
+### Bug Fixes
+
+* **templates:** MSBuild failing due to trailing slash ([25a8435](https://github.com/ExtendRealityLtd/DevOps/commit/25a843506e5157520569f6d2c2ca71c9a5a5e220))
+
 ## [3.7.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.7.0...v3.7.1) (2019-10-13)
 
 
