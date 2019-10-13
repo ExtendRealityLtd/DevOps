@@ -1,5 +1,18 @@
 # Changelog
 
+# [3.6.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.6...v3.6.0) (2019-10-13)
+
+
+### Bug Fixes
+
+* **templates:** .meta file check when package has dependencies ([7130b5e](https://github.com/ExtendRealityLtd/DevOps/commit/7130b5eef0299d5d424c2b0788dba0c7110f4b4a))
+
+
+### Features
+
+* **templates:** use latest Windows VM image ([f3df0b9](https://github.com/ExtendRealityLtd/DevOps/commit/f3df0b949e361b4f72dea2a71c79a58c0f130f7c))
+* **templates:** use universal CI skip commit message ([28e2b3e](https://github.com/ExtendRealityLtd/DevOps/commit/28e2b3e1e2fe998d006962ee7a8b5e4352b53944))
+
 ## [3.5.6](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.5...v3.5.6) (2019-01-02)
 
 
