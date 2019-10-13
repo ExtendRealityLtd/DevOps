@@ -34,7 +34,7 @@ steps:
       }
 
       $path = $setupInstance.Path
-      $path = Join-Path $path "Editor/Data/Managed/"
+      $path = Join-Path $path "Editor/Data/Managed"
       Write-Host "##vso[task.setvariable variable=Unity.AssembliesPath]$path"
       Write-Host "Using Unity at path '$path'."
     displayName: Install/find Unity
