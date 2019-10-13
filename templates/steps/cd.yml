@@ -105,7 +105,7 @@ steps:
   - bash: mv -f package.json.original package.json
     displayName: Bring back original package.json
   - bash: |
-      cat > semantic-release.template.json <<- "EOF"
+      cat > semantic-release.config.js <<- "EOF"
       parserOpts = {
         revertPattern: '/^(?:Revert|revert:)\\s\'?([\\s\\S]+?)\'?\\s*This reverts commit (\\w*)\\./'
       };
@@ -190,7 +190,7 @@ steps:
         }
       };
       EOF
-    displayName: Create semantic-release.template.json
+    displayName: Create semantic-release.config.js
   - bash: |
       cat > npm-tarball-to-zip.sh <<- "EOF"
       tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
@@ -201,7 +201,7 @@ steps:
       EOF
     displayName: Create npm-tarball-to-zip.sh
   # Using bash to run semantic-release doesn't continue after loading all the plugins.
-  - powershell: npx semantic-release --extends "./semantic-release.template.json"
+  - powershell: npx semantic-release --extends "./semantic-release.config.js"
     displayName: Run semantic-release
     env:
       GITHUB_TOKEN: $(GitHub.Token)
