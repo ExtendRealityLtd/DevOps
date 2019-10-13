@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.7.0...v3.7.1) (2019-10-13)
+
+
+### Bug Fixes
+
+* **templates:** correct path for Unity assemblies ([c1b9801](https://github.com/ExtendRealityLtd/DevOps/commit/c1b9801890acc30c3b67b36bc59d6267b53e8098))
+
 # [3.7.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.6.0...v3.7.0) (2019-10-13)
 
 
