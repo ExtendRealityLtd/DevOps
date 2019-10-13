@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.8.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.7.2...v3.8.0) (2019-10-13)
+
+
+### Features
+
+* **templates:** adhere to latest workflow conventions ([1583546](https://github.com/ExtendRealityLtd/DevOps/commit/15835462980afbef1dfdb8cf89e6f4fdf5ab0283))
+
+
+### Bug Fixes
+
+* **templates:** semantic-release configuration file name ([bb0b05d](https://github.com/ExtendRealityLtd/DevOps/commit/bb0b05d1df334fd985e64263764f50522666fa5c))
+
 ## [3.7.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.7.1...v3.7.2) (2019-10-13)
 
 
