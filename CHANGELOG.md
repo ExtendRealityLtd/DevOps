@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.10.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.10.0...v3.10.1) (2019-10-14)
+
+#### Bug Fixes
+
+* **templates:** support spaces in file path in Unity .meta checks ([d96d688](https://github.com/ExtendRealityLtd/DevOps/commit/d96d688094536b3ec7f44f8c0f48ede2a9b8a6a7))
+
 ## [3.10.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.9.0...v3.10.0) (2019-10-14)
 
 #### Features
