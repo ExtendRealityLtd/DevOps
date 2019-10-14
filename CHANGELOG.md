@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.11.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.1...v3.11.2) (2019-10-14)
+
+#### Bug Fixes
+
+* **ci:** empty change to fix package creation ([88cd8c2](https://github.com/ExtendRealityLtd/DevOps/commit/88cd8c2c0e38bc3abb341f2e497b615b99ee6cab))
+
 ### [3.11.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.0...v3.11.1) (2019-10-14)
 
 #### Bug Fixes
