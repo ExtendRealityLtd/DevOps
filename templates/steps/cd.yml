@@ -331,5 +331,4 @@ steps:
     env:
       GITHUB_TOKEN: $(GitHub.Token)
       NPM_TOKEN: $(Npm.Token)
-      NPM_CONFIG_REGISTRY: https://npm.pkg.github.com/ExtendRealityLtd
       npm_config_access: public
