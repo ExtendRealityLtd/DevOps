@@ -8,6 +8,16 @@
 * **templates:** pretty, sorted changelog/release notes in CD ([763cf1d](https://github.com/ExtendRealityLtd/DevOps/commit/763cf1dbc04060bf5e289cdad94fb4f4a19936bf))
 #### Bug Fixes
 
+* **templates:** CD failure when commit body is empty ([34f4c71](https://github.com/ExtendRealityLtd/DevOps/commit/34f4c71f6282c624868a6d5c5ff38fa2e7c8088d))* **templates:** changelog/release note breaking change formatting ([7efda24](https://github.com/ExtendRealityLtd/DevOps/commit/7efda24500c52da0a262f549ed32a30c9200419a))* **templates:** release pre-release packages on the default channel ([fdc9579](https://github.com/ExtendRealityLtd/DevOps/commit/fdc9579d621250041d02fe13bdc2a9a0ba614ed8))* **templates:** remove release commits from changelog/release note ([cb47e13](https://github.com/ExtendRealityLtd/DevOps/commit/cb47e13133a89ab531866c37fde1b8ec2eb420e7))
+
+## [3.9.0-next.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.8.0...v3.9.0-next.1) (2019-10-14)
+
+
+#### Features
+
+* **templates:** pretty, sorted changelog/release notes in CD ([763cf1d](https://github.com/ExtendRealityLtd/DevOps/commit/763cf1dbc04060bf5e289cdad94fb4f4a19936bf))
+#### Bug Fixes
+
 * **templates:** CD failure when commit body is empty ([34f4c71](https://github.com/ExtendRealityLtd/DevOps/commit/34f4c71f6282c624868a6d5c5ff38fa2e7c8088d))* **templates:** release pre-release packages on the default channel ([fdc9579](https://github.com/ExtendRealityLtd/DevOps/commit/fdc9579d621250041d02fe13bdc2a9a0ba614ed8))
 #### Miscellaneous Chores
 
