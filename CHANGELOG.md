@@ -27,6 +27,18 @@
 #### Bug Fixes
 
 * **templates:** changelog/release note formatting ([c8a7ee9](https://github.com/ExtendRealityLtd/DevOps/commit/c8a7ee9444849950903823b6b8708dcbae43744e))
+* **templates:** support spaces in file path in Unity .meta checks ([d96d688](https://github.com/ExtendRealityLtd/DevOps/commit/d96d688094536b3ec7f44f8c0f48ede2a9b8a6a7))
+
+## [3.10.0-next.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.9.0...v3.10.0-next.1) (2019-10-14)
+
+#### Features
+
+* **templates:** merge commit messages in changelog/release note ([53371ac](https://github.com/ExtendRealityLtd/DevOps/commit/53371ace542626dce2f1124b3d468376a7fde5ae))
+  > This keeps paragraphs in the messages as is.
+
+#### Bug Fixes
+
+* **templates:** changelog/release note formatting ([c8a7ee9](https://github.com/ExtendRealityLtd/DevOps/commit/c8a7ee9444849950903823b6b8708dcbae43744e))
 
 ## [3.9.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.8.0...v3.9.0) (2019-10-14)
 
