@@ -135,10 +135,17 @@ steps:
             writerOpts: {
               finalizeContext: (context) => {
                 const prefix = '  > '
+                context.noteGroups.forEach(group => {
+                  group.notes.forEach(note => {
+                    if (note.text) {
+                      note.text = note.text.split('\n\n').map(paragraph => paragraph.split('\n').join(' ')).join('\n\n')
+                    }
+                  })
+                })
                 context.commitGroups.forEach(group => {
                   group.commits.forEach(commit => {
                     if (commit.body) {
-                      commit.body = prefix + commit.body.split('\n').join('\n' + prefix)
+                      commit.body = prefix + commit.body.split('\n\n').map(paragraph => paragraph.split('\n').join(' ')).join('\n' + prefix + '\n' + prefix)
                     }
                   })
                   group.commits = group.commits.filter(commit => !(commit.type == 'Miscellaneous Chores' && commit.scope == 'release'))
