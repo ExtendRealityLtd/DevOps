@@ -148,9 +148,9 @@ steps:
               },
               mainTemplate: `
       {{> header}}
-
       {{#if noteGroups}}
       {{#each noteGroups}}
+
       #### :warning: {{title}} :warning:
 
       {{#each notes}}
@@ -177,15 +177,15 @@ steps:
       {{/each}}
       {{/if}}
 
-      {{#each commitGroups}}
+      {{~#each commitGroups}}
       {{#if title}}
+
       #### {{title}}
 
       {{/if}}
       {{#each commits}}
       {{> commit root=@root}}
       {{/each}}
-
       {{/each}}
       `,
               commitPartial: `*{{#if scope}} **{{scope}}:**
@@ -249,8 +249,7 @@ steps:
         {{~/if}}{{/each}}
       {{~/if}}
 
-      {{~#if body}}
-
+      {{#if body}}
       {{body}}
       {{/if}}
       `,
