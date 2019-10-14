@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.9.0-next.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.8.0...v3.9.0-next.1) (2019-10-14)
+
+
+#### Features
+
+* **templates:** pretty, sorted changelog/release notes in CD ([763cf1d](https://github.com/ExtendRealityLtd/DevOps/commit/763cf1dbc04060bf5e289cdad94fb4f4a19936bf))
+#### Bug Fixes
+
+* **templates:** CD failure when commit body is empty ([34f4c71](https://github.com/ExtendRealityLtd/DevOps/commit/34f4c71f6282c624868a6d5c5ff38fa2e7c8088d))* **templates:** release pre-release packages on the default channel ([fdc9579](https://github.com/ExtendRealityLtd/DevOps/commit/fdc9579d621250041d02fe13bdc2a9a0ba614ed8))
+#### Miscellaneous Chores
+
+* **release:** set version to 3.6.0-next.1 [skip ci] ([f65d680](https://github.com/ExtendRealityLtd/DevOps/commit/f65d680cdf06fba031fc16638e9c0053021d36e8))
+  > ## [3.6.0-next.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.5.6...v3.6.0-next.1@next) (2019-10-13)
+  > 
+  > ### Features
+  > 
+  > * **templates:** adhere to latest workflow conventions ([1583546](https://github.com/ExtendRealityLtd/DevOps/commit/15835462980afbef1dfdb8cf89e6f4fdf5ab0283))
+  > * **templates:** treat the master branch as a release branch ([d8b9ad4](https://github.com/ExtendRealityLtd/DevOps/commit/d8b9ad4a756068ab89de88a2203f1603b3a7faad))
+  > * **templates:** use latest Windows VM image ([f3df0b9](https://github.com/ExtendRealityLtd/DevOps/commit/f3df0b949e361b4f72dea2a71c79a58c0f130f7c))
+  > * **templates:** use universal CI skip commit message ([28e2b3e](https://github.com/ExtendRealityLtd/DevOps/commit/28e2b3e1e2fe998d006962ee7a8b5e4352b53944))
+  > 
+  > ### Bug Fixes
+  > 
+  > * **templates:** .meta file check when package has dependencies ([7130b5e](https://github.com/ExtendRealityLtd/DevOps/commit/7130b5eef0299d5d424c2b0788dba0c7110f4b4a))
+  > * **templates:** correct path for Unity assemblies ([c1b9801](https://github.com/ExtendRealityLtd/DevOps/commit/c1b9801890acc30c3b67b36bc59d6267b53e8098))
+  > * **templates:** MSBuild failing due to trailing slash ([25a8435](https://github.com/ExtendRealityLtd/DevOps/commit/25a843506e5157520569f6d2c2ca71c9a5a5e220))
+  > * **templates:** semantic-release configuration file name ([bb0b05d](https://github.com/ExtendRealityLtd/DevOps/commit/bb0b05d1df334fd985e64263764f50522666fa5c))
+
 ## [3.8.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.7.2...v3.8.0) (2019-10-13)
 
 
