@@ -1,5 +1,16 @@
 # Changelog
 
+### [3.11.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.0...v3.11.1) (2019-10-14)
+
+#### Bug Fixes
+
+* **packaging:** use GitHub feed compliant package name ([58939ef](https://github.com/ExtendRealityLtd/DevOps/commit/58939efb3e24d4c250c1958d71525f0f5a374239))
+* **templates:** use correct npm registry ([cf95d79](https://github.com/ExtendRealityLtd/DevOps/commit/cf95d79fb5db3da93b90d659234160fb20642ebc))
+
+#### Miscellaneous Chores
+
+* **templates:** update to latest semantic-release packages ([1547344](https://github.com/ExtendRealityLtd/DevOps/commit/15473444b7bf7e7a47348bb6b5486726bad6811c))
+
 ## [3.11.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.10.1...v3.11.0) (2019-10-14)
 
 #### Features
