@@ -1,5 +1,5 @@
 {
-    "name": "io.extendreality.devops",
+    "name": "@extendrealityltd/devops",
     "displayName": "DevOps",
     "description": "A collection of templates to simplify the continuous integration and deployment of projects by https://github.com/ExtendRealityLtd.",
     "version": "3.11.0",
