@@ -137,7 +137,9 @@ steps:
                 const prefix = '  > '
                 context.commitGroups.forEach(group => {
                   group.commits.forEach(commit => {
-                    commit.body = prefix + commit.body.split('\n').join('\n' + prefix)
+                    if (commit.body) {
+                      commit.body = prefix + commit.body.split('\n').join('\n' + prefix)
+                    }
                   })
                 })
                 return context
