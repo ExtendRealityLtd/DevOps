@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.11.6](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.5...v3.11.6) (2019-10-14)
+
+#### Bug Fixes
+
+* **templates:** back to npmjs.com ([f6d295c](https://github.com/ExtendRealityLtd/DevOps/commit/f6d295c83cb21cd261a6efd5d08e24ae7841a801))
+  > GitHub's npm feeds only allow publishing scoped packages, but UPM doesn't support those.
+
 ### [3.11.5](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.4...v3.11.5) (2019-10-14)
 
 #### Bug Fixes
