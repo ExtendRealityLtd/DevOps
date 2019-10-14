@@ -113,8 +113,8 @@ steps:
         branches: [
           '+([0-9])?(.{+([0-9]),x}).x',
           { name: 'master', channel: false },
-          { name: 'next', channel: 'next', prerelease: 'next' },
-          { name: 'next-major', channel: 'next-major', prerelease: 'next-major' }
+          { name: 'next', channel: false, prerelease: 'next' },
+          { name: 'next-major', channel: false, prerelease: 'next-major' }
         ],
         tagFormat: 'v${version}',
         plugins: [
