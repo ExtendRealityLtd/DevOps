@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.11.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.2...v3.11.3) (2019-10-14)
+
+#### Bug Fixes
+
+* **templates:** package release to GitHub ([acb573c](https://github.com/ExtendRealityLtd/DevOps/commit/acb573c8c2143fc09ba92896a835ec6ce857e18d))
+
 ### [3.11.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.1...v3.11.2) (2019-10-14)
 
 #### Bug Fixes
