@@ -141,7 +141,9 @@ steps:
                       commit.body = prefix + commit.body.split('\n').join('\n' + prefix)
                     }
                   })
+                  group.commits = group.commits.filter(commit => !(commit.type == 'Miscellaneous Chores' && commit.scope == 'release'))
                 })
+                context.commitGroups = context.commitGroups.filter(group => group.commits.length > 0)
                 return context
               },
               mainTemplate: `
