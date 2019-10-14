@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.11.4](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.3...v3.11.4) (2019-10-14)
+
+#### Bug Fixes
+
+* **ci:** use package name that is usable by UPM ([c940803](https://github.com/ExtendRealityLtd/DevOps/commit/c940803fb8f88e4b83a8470ce21b17fb1581f8b3))
+
 ### [3.11.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.2...v3.11.3) (2019-10-14)
 
 #### Bug Fixes
