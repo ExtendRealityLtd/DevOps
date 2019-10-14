@@ -135,10 +135,17 @@ steps:
             writerOpts: {
               finalizeContext: (context) => {
                 const prefix = '  > '
+                context.noteGroups.forEach(group => {
+                  group.notes.forEach(note => {
+                    if (note.text) {
+                      note.text = note.text.split('\n\n').map(paragraph => paragraph.split('\n').join(' ')).join('\n\n')
+                    }
+                  })
+                })
                 context.commitGroups.forEach(group => {
                   group.commits.forEach(commit => {
                     if (commit.body) {
-                      commit.body = prefix + commit.body.split('\n').join('\n' + prefix)
+                      commit.body = prefix + commit.body.split('\n\n').map(paragraph => paragraph.split('\n').join(' ')).join('\n' + prefix + '\n' + prefix)
                     }
                   })
                   group.commits = group.commits.filter(commit => !(commit.type == 'Miscellaneous Chores' && commit.scope == 'release'))
@@ -148,9 +155,9 @@ steps:
               },
               mainTemplate: `
       {{> header}}
-
       {{#if noteGroups}}
       {{#each noteGroups}}
+
       #### :warning: {{title}} :warning:
 
       {{#each notes}}
@@ -177,15 +184,15 @@ steps:
       {{/each}}
       {{/if}}
 
-      {{#each commitGroups}}
+      {{~#each commitGroups}}
       {{#if title}}
+
       #### {{title}}
 
       {{/if}}
       {{#each commits}}
       {{> commit root=@root}}
       {{/each}}
-
       {{/each}}
       `,
               commitPartial: `*{{#if scope}} **{{scope}}:**
@@ -249,8 +256,7 @@ steps:
         {{~/if}}{{/each}}
       {{~/if}}
 
-      {{~#if body}}
-
+      {{#if body}}
       {{body}}
       {{/if}}
       `,
