@@ -133,6 +133,145 @@ steps:
             preset: 'conventionalcommits',
             parserOpts,
             writerOpts: {
+              finalizeContext: (context) => {
+                const prefix = '  > '
+                context.commitGroups.forEach(group => {
+                  group.commits.forEach(commit => {
+                    commit.body = prefix + commit.body.split('\n').join('\n' + prefix)
+                  })
+                })
+                return context
+              },
+              mainTemplate: `
+      {{> header}}
+
+      {{#if noteGroups}}
+      {{#each noteGroups}}
+      #### :warning: {{title}} :warning:
+
+      {{#each notes}}
+      * {{#if commit.scope}}**{{commit.scope}}:** {{/if}}{{text}}
+      {{~!-- commit link --}} {{#if @root.linkReferences~}}
+        ([{{commit.shortHash}}](
+        {{~#if @root.repository}}
+          {{~#if @root.host}}
+            {{~@root.host}}/
+          {{~/if}}
+          {{~#if @root.owner}}
+            {{~@root.owner}}/
+          {{~/if}}
+          {{~@root.repository}}
+        {{~else}}
+          {{~@root.repoUrl}}
+        {{~/if}}/
+        {{~@root.commit}}/{{commit.hash}}))
+      {{~else}}
+        {{~commit.shortHash}}
+      {{~/if}}
+      {{/each}}
+      {{/each}}
+      {{/if}}
+
+      {{#each commitGroups}}
+      {{#if title}}
+      #### {{title}}
+
+      {{/if}}
+      {{#each commits}}
+      {{> commit root=@root}}
+      {{/each}}
+
+      {{/each}}
+      `,
+              commitPartial: `*{{#if scope}} **{{scope}}:**
+      {{~/if}} {{#if subject}}
+        {{~subject}}
+      {{~else}}
+        {{~header}}
+      {{~/if}}
+
+      {{~!-- commit link --}} {{#if @root.linkReferences~}}
+        ([{{shortHash}}](
+        {{~#if @root.repository}}
+          {{~#if @root.host}}
+            {{~@root.host}}/
+          {{~/if}}
+          {{~#if @root.owner}}
+            {{~@root.owner}}/
+          {{~/if}}
+          {{~@root.repository}}
+        {{~else}}
+          {{~@root.repoUrl}}
+        {{~/if}}/
+        {{~@root.commit}}/{{hash}}))
+      {{~else}}
+        {{~shortHash}}
+      {{~/if}}
+
+      {{~!-- commit references --}}
+      {{~#if references~}}
+        , closes
+        {{~#each references}} {{#if @root.linkReferences~}}
+          [
+          {{~#if this.owner}}
+            {{~this.owner}}/
+          {{~/if}}
+          {{~this.repository}}#{{this.issue}}](
+          {{~#if @root.repository}}
+            {{~#if @root.host}}
+              {{~@root.host}}/
+            {{~/if}}
+            {{~#if this.repository}}
+              {{~#if this.owner}}
+                {{~this.owner}}/
+              {{~/if}}
+              {{~this.repository}}
+            {{~else}}
+              {{~#if @root.owner}}
+                {{~@root.owner}}/
+              {{~/if}}
+                {{~@root.repository}}
+              {{~/if}}
+          {{~else}}
+            {{~@root.repoUrl}}
+          {{~/if}}/
+          {{~@root.issue}}/{{this.issue}})
+        {{~else}}
+          {{~#if this.owner}}
+            {{~this.owner}}/
+          {{~/if}}
+          {{~this.repository}}#{{this.issue}}
+        {{~/if}}{{/each}}
+      {{~/if}}
+
+      {{~#if body}}
+
+      {{body}}
+      {{/if}}
+      `,
+              commitGroupsSort: (a, b) => {
+                const order = [
+                  'Features',
+                  'Bug Fixes',
+                  'Performance Improvements',
+                  'Documentation',
+                  'Tests',
+                  'Code Refactoring',
+                  'Styles',
+                  'Build System',
+                  'Continuous Integration',
+                  'Miscellaneous Chores'
+                ]
+                const indexA = order.indexOf(a.title)
+                const indexB = order.indexOf(b.title)
+                if (indexA >= indexB) {
+                  return 1
+                } else {
+                  return -1
+                }
+              }
+            },
+            presetConfig: {
               types: [
                 { type: 'feat', section: 'Features' },
                 { type: 'fix', section: 'Bug Fixes' },
@@ -142,7 +281,8 @@ steps:
                 { type: 'refactor', section: 'Code Refactoring' },
                 { type: 'style', section: 'Styles' },
                 { type: 'build', section: 'Build System' },
-                { type: 'ci', section: 'Continuous Integration' }
+                { type: 'ci', section: 'Continuous Integration' },
+                { type: 'chore', section: 'Miscellaneous Chores' }
               ]
             }
           }],
@@ -169,25 +309,7 @@ steps:
             labels: 'failed-release',
             releasedLabels: 'released'
           }]
-        ],
-        commitGroupsSort: (a, b) => {
-          const order = [
-            'Features',
-            'Bug Fixes',
-            'Performance Improvements',
-            'Documentation',
-            'Tests',
-            'Code Refactoring',
-            'Styles',
-            'Build System',
-            'Continuous Integration'
-          ]
-          if (order.indexOf(a.title) >= order.indexOf(b.title)) {
-            return -1
-          } else {
-            return 1
-          }
-        }
+        ]
       };
       EOF
     displayName: Create semantic-release.config.js
