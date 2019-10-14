@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.11.5](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.4...v3.11.5) (2019-10-14)
+
+#### Bug Fixes
+
+* **templates:** use correct NPM registry for package publish ([38f69d7](https://github.com/ExtendRealityLtd/DevOps/commit/38f69d74325cabcd60db2359ab59febb07e881b0))
+
 ### [3.11.4](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.3...v3.11.4) (2019-10-14)
 
 #### Bug Fixes
