@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.11.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.10.1...v3.11.0) (2019-10-14)
+
+#### Features
+
+* **templates:** publish packages to GitHub npm feed ([e8d1ffc](https://github.com/ExtendRealityLtd/DevOps/commit/e8d1ffc5c987b5dbc216926753917b197ecc6949))
+
 ### [3.10.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.10.0...v3.10.1) (2019-10-14)
 
 #### Bug Fixes
