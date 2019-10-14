@@ -318,7 +318,7 @@ steps:
     displayName: Create semantic-release.config.js
   - bash: |
       cat > npm-tarball-to-zip.sh <<- "EOF"
-      tarball=$(npm list --depth 0 | sed "s/@/-/g; s/ .*/.tgz/g; 1q;")
+      tarball=$(find . -name "*.tgz")
       zipName=$(echo $tarball | sed -e "s/\.[^.]*$//").zip
       files=$(tar -tf $tarball | sed "s/^package\\///")
       npx --no-install --cache ../node_modules bestzip $zipName $files
