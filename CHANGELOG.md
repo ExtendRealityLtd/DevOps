@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.12.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.6...v3.12.0) (2019-10-20)
+
+#### Features
+
+* **templates:** bump patch version for dependency updates ([0229eca](https://github.com/ExtendRealityLtd/DevOps/commit/0229eca700018f43dbf3dd6bc346f10e591d55d5))
+
 ### [3.11.6](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.5...v3.11.6) (2019-10-14)
 
 #### Bug Fixes
