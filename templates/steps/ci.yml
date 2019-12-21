@@ -9,7 +9,7 @@ steps:
 - ${{ if eq(parameters.unityProject, 'true') }}:
   - powershell: |
       Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-      Install-Module UnitySetup -Scope CurrentUser -Force
+      Install-Module UnitySetup -Scope CurrentUser -Force -AllowPrerelease
     displayName: Install Unity Setup Powershell Module
     failOnStderr: true
   - powershell: |
