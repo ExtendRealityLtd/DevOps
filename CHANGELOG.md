@@ -1,5 +1,11 @@
 # Changelog
 
+### [3.12.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.0...v3.12.1) (2019-12-21)
+
+#### Bug Fixes
+
+* **templates:** support Unity 2019.2 and later ([6f06dda](https://github.com/ExtendRealityLtd/DevOps/commit/6f06dda51d4d5350a4ae6766b3a4eaf9e5957933))
+
 ## [3.12.0](https://github.com/ExtendRealityLtd/DevOps/compare/v3.11.6...v3.12.0) (2019-10-20)
 
 #### Features
