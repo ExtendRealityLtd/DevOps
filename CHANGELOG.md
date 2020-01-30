@@ -1,5 +1,14 @@
 # Changelog
 
+### [3.12.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.1...v3.12.2) (2020-01-30)
+
+#### Bug Fixes
+
+* **cd.yml:** provide explicit path to find command ([21ca24c](https://github.com/ExtendRealityLtd/DevOps/commit/21ca24c519d732e83fba030c646196d11f2925b4))
+  > There is an existing issue with win64 agents trying to run the find command https://github.com/actions/virtual-environments/issues/263
+  > 
+  > The fix is to provide the explicit path to the find command.
+
 ### [3.12.1](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.0...v3.12.1) (2019-12-21)
 
 #### Bug Fixes
