@@ -6,7 +6,7 @@ steps:
   - ${{ if eq(parameters.unityProject, 'true') }}:
     - bash: |
         npm pack 2>/dev/null
-        tarball=$(find . -name "*.tgz")
+        tarball=$(/usr/bin/find . -name "*.tgz")
         tarballFilePaths=$(tar -tf $tarball)
 
         while read -r filePath
@@ -319,7 +319,7 @@ steps:
     displayName: Create semantic-release.config.js
   - bash: |
       cat > npm-tarball-to-zip.sh <<- "EOF"
-      tarball=$(find . -name "*.tgz")
+      tarball=$(/usr/bin/find . -name "*.tgz")
       zipName=$(echo $tarball | sed -e "s/\.[^.]*$//").zip
       files=$(tar -tf $tarball | sed "s/^package\\///")
       npx --no-install --cache ../node_modules bestzip $zipName $files
