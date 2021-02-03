@@ -20,13 +20,16 @@ steps:
       {
         If (!$setupInstance)
         {
-          Write-Error "No Unity version specified and no Unity installation found."
-          Exit 1
+          Write-Host "No Unity version specified and no Unity installation found - forcing to min supported version of 2018.3.10f1"
+          $version = '2018.3.10f1';
         }
-
-        Write-Host "Using already installed Unity version '$($setupInstance.Version)'."
+        Else
+        {
+          Write-Host "Using already installed Unity version '$($setupInstance.Version)'."
+        }
       }
-      ElseIf ($setupInstance.Version.ToString() -ne $version)
+
+      If ($setupInstance.Version.ToString() -ne $version)
       {
         Write-Host "Installing Unity version '$version'."
         Install-UnitySetupInstance -Installers (Find-UnitySetupInstaller -Version $version -Components "Windows")
