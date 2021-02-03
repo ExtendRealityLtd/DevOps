@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.12.4](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.3...v3.12.4) (2021-02-03)
+
+#### Bug Fixes
+
+* **ci.yml:** wrap version in quotation marks ([1022b9a](https://github.com/ExtendRealityLtd/DevOps/commit/1022b9a667df6e15e31d95d701f8b47e1b85a7a2))
+  > The version setter should be wrapped in quotation marks `"` and not apostrophies `'`.
+
 ### [3.12.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.2...v3.12.3) (2021-02-03)
 
 #### Bug Fixes
