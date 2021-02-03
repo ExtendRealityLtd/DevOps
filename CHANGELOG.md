@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.12.3](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.2...v3.12.3) (2021-02-03)
+
+#### Bug Fixes
+
+* **ci.yml:** force unity build version if no found ([246a3d7](https://github.com/ExtendRealityLtd/DevOps/commit/246a3d7ad42090129dc30f7c9e404e4e51e49105))
+  > If there is no Unity installer present and no Unity version is provided then the process just fails, and for some reason there seems to be no found Unity version so let's force it to be the min supported Unity version.
+
 ### [3.12.2](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.1...v3.12.2) (2020-01-30)
 
 #### Bug Fixes
