@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.12.5](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.4...v3.12.5) (2021-02-03)
+
+#### Bug Fixes
+
+* **ci.yml:** check for null setup instance ([b7af1d8](https://github.com/ExtendRealityLtd/DevOps/commit/b7af1d87dabb73ec088549ac5f54434a8a1ae99c))
+  > If `$setupInstance` is not found then we must force install the base version of Unity.
+
 ### [3.12.4](https://github.com/ExtendRealityLtd/DevOps/compare/v3.12.3...v3.12.4) (2021-02-03)
 
 #### Bug Fixes
