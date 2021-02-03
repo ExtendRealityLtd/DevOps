@@ -21,7 +21,7 @@ steps:
         If (!$setupInstance)
         {
           Write-Host "No Unity version specified and no Unity installation found - forcing to min supported version of 2018.3.10f1"
-          $version = '2018.3.10f1';
+          $version = "2018.3.10f1";
         }
         Else
         {
